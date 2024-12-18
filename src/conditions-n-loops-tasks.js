@@ -8,7 +8,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch       *
  *                                                                                           *
  ******************************************************************************************* */
-
 /**
  * Determines whether a given number is positive. Zero is considered positive.
  * This function does not use Number or Math class methods.
@@ -146,10 +145,59 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let result = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    switch (numberStr[i]) {
+      case '-':
+        result += 'minus';
+        break;
+      case '.':
+        result += 'point';
+        break;
+      case ',':
+        result += 'point';
+        break;
+      case '1':
+        result += 'one';
+        break;
+      case '2':
+        result += 'two';
+        break;
+      case '3':
+        result += 'three';
+        break;
+      case '4':
+        result += 'four';
+        break;
+      case '5':
+        result += 'five';
+        break;
+      case '6':
+        result += 'six';
+        break;
+      case '7':
+        result += 'seven';
+        break;
+      case '8':
+        result += 'eight';
+        break;
+      case '9':
+        result += 'nine';
+        break;
+      case '0':
+        result += 'zero';
+        break;
+      default:
+        result += '';
+        break;
+    }
+    if (numberStr.length !== 1 && i < numberStr.length - 1) {
+      result += ' ';
+    }
+  }
+  return result;
 }
-
 /**
  * Determines whether a string is a palindrome.
  * In this task, the use of methods of the String and Array classes is not allowed.
